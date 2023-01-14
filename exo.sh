@@ -52,6 +52,23 @@ resultat=$(countChiffres $number)
 echo "Le nombre de chiffres est : $resultat"
 }
 
+function exo7(){
+
+read -p "Entrez un nombre entier: " number
+
+result=$(sommeChiffres $number)
+echo "La somme des chiffres de " $number " est : $result"
+}
+
+sommeChiffres() {
+  number=$1
+  somme=0
+  for chiffre in $(echo $number | grep -o .); do
+    somme=$((somme + chiffre))
+  done
+  echo $somme
+}
+
 countChiffres() {
   number=$1
   echo ${#number}
@@ -107,4 +124,4 @@ max=${1}
 echo $m ax
 }
 
-exo6;
+exo7;
