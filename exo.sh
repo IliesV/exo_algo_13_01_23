@@ -1,4 +1,9 @@
 #!/bin/bash
+clear ;
+
+
+
+
 
 function exo1(){
 read -p "Veuillez entrer un nombre : " input
@@ -124,4 +129,35 @@ max=${1}
 echo $m ax
 }
 
-exo7;
+exercices=(
+"1: Ecrire un script qui prend en entrée un nombre entier et affiche tous les nombres de 1 à ce nombre."
+"2: Ecrire un script qui prend en entrée une chaîne de caractères et renvoie le nombre de voyelles dans la chaîne."
+"3: Ecrire un script qui prend en entrée un tableau d'entiers et renvoie le plus grand élément du tableau."
+"4: Ecrire un script qui prend en entrée deux chaînes de caractères et renvoie true si elles sont des anagrammes, false sinon."
+"5: Ecrire un script qui prend en entrée un nombre entier et renvoie true si c'est un nombre premier, false sinon."
+"6: Ecrire un script qui prend en entrée un nombre entier et renvoie le nombre de chiffres de ce nombre."
+"7: Ecrire un script qui prend en entrée un nombre entier et renvoie la somme des chiffres de ce nombre."
+"Quitter le script"
+)
+
+while true; do
+  for i in "${!exercices[@]}"; do
+    echo "$((i+1)): ${exercices[$i]}"
+  done
+
+  echo "Tapez le nombre de l'exercice que vous voulez tester ou 8 pour quitter."
+  read input
+
+  # Exécuter la fonction choisie ou quitter le script
+  case $input in
+    1) exo1 ;;
+    2) exo2 ;;
+    3) exo3 ;;
+    4) exo4 ;;
+    5) exo5 ;;
+    6) exo6 ;;
+    7) exo7 ;;
+    8) break ;;
+    *) echo "Pas une option valide" ;;
+  esac
+done
