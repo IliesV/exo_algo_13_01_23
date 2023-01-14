@@ -44,6 +44,18 @@ resultat=$(checkPrime $number)
 echo $resultat
 }
 
+function exo6(){
+
+read -p "Entrez un nombre entier : " number
+
+resultat=$(countChiffres $number)
+echo "Le nombre de chiffres est : $resultat"
+}
+
+countChiffres() {
+  number=$1
+  echo ${#number}
+}
 
 checkPrime() {
   number=$1
@@ -95,4 +107,4 @@ max=${1}
 echo $m ax
 }
 
-exo5;
+exo6;
