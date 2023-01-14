@@ -28,6 +28,30 @@ echo "Le plus grand élément parmi les nombres donnés est : $(plusGrand "${ent
 
 }
 
+function exo4(){
+
+read -p "Entrez votre texte : " input1
+read -p "Entrez votre texte : " input2
+resultat=$(checkAnagramme $input1 $input2)
+echo $resultat
+
+}
+
+function checkAnagramme(){
+chaine1=$(echo $1 | tr -d ' ' | tr '[:upper:]' '[:lower:]')
+chaine2=$(echo $2 | tr -d ' ' | tr '[:upper:]' '[:lower:]')
+
+chaine1=$(echo $chaine1 | fold -w1 | sort | tr -d '\n')
+chaine2=$(echo $chaine2 | fold -w1 | sort | tr -d '\n')
+
+if [ $chaine1 == $chaine2 ]; then
+	echo "true"
+else
+	echo "false"
+fi
+}
+
+
 function plusGrand(){
 max=${1}
 	for i in "${@:2}";
@@ -37,4 +61,4 @@ max=${1}
 echo $max
 }
 
-exo3;
+exo4;
