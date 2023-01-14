@@ -11,5 +11,16 @@ read -p "Veuillez entrer un nombre : " input
 }
 
 
+function exo2(){
+read -p "Veuillez entrer du texte  : " input
 
-exo1;
+nbvoyelle=$(echo $input | grep -o -i "[aeiouy]" | wc --lines)
+echo $nbvoyelle;
+
+
+
+}
+
+
+
+exo2;
