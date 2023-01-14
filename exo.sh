@@ -37,6 +37,40 @@ echo $resultat
 
 }
 
+
+function exo5(){
+read -p "Entrez un nombre entier : " number
+resultat=$(checkPrime $number)
+echo $resultat
+}
+
+
+checkPrime() {
+  number=$1
+  if [ $number -lt 2 ]; then
+    echo "false"
+    return
+  fi
+  if [ $number -eq 2 ]; then
+    echo "true"
+    return
+  fi
+  if [ $((number % 2)) -eq 0 ]; then
+    echo "false"
+    return
+  fi 
+  for ((i=3; i*i<=number; i+=2));
+  do
+    if [ $((number % i)) -eq 0 ]; then
+      echo "false"
+      return
+    fi
+  done
+
+  echo "true"
+}
+
+
 function checkAnagramme(){
 chaine1=$(echo $1 | tr -d ' ' | tr '[:upper:]' '[:lower:]')
 chaine2=$(echo $2 | tr -d ' ' | tr '[:upper:]' '[:lower:]')
@@ -58,7 +92,7 @@ max=${1}
 	do
 		((i > max)) && max=$i
 	done
-echo $max
+echo $m ax
 }
 
-exo4;
+exo5;
